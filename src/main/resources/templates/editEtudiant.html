@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="templete1">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Form Etudiants</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.1.3/css/bootstrap.min.css">
+
+</head>
+<body>
+<div layout:fragment="content1">
+    <form method="post" th:action="@{save(page=${page}, keyword=${keyword})}">
+        <div>
+            <label>ID :</label>
+            <label th:text="${etudiant.ID}" ></label>
+            <input class="form-control" type="hidden" name="id" th:value="${etudiant.id}">
+
+        </div>
+        <div>
+            <label>Nom</label>
+            <input class="form-control" type="text" name="nom" th:value="${etudiant.nom}">
+            <span th:errors="${etudiant.nom}"></span>
+        </div>
+        <div>
+            <label>Prenom</label>
+            <input class="form-control" type="text" name="prenom" th:value="${etudiant.prenom}">
+            <span th:errors="${etudiant.prenom}"></span>
+        </div>
+        <div>
+            <label>email</label>
+            <input class="form-control" type="text" name="email" th:value="${etudiant.email}">
+            <span th:errors="${etudiant.email}"></span>
+        </div>
+        <div>
+            <label>Date Naissance</label>
+            <input class="form-control" type="date" name="dateNaissance" th:value="${etudiant.dateNaissance}">
+            <span th:errors="${etudiant.dateNaissance}"></span>
+        </div>
+        <div>
+            <label>gener</label>
+            <input type="checkbox" name="gener" th:checked="${etudiant.gener}">
+            <span th:errors="${etudiant.gener}"></span>
+        </div>
+        <div>
+            <label>regle_non</label>
+            <input class="form-control" type="text" name="regle_non" th:value="${etudiant.regle_non}">
+            <span th:errors="${etudiant.regle_non}"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+</div>
+</body>
+</html>
